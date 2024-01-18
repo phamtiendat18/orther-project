@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @property --rotate {
+        syntax: "<angle>";
+        initial-value: 132deg;
+        inherits: false;
+      }
+
+      :root {
+        --card-height: 65vh;
+        --card-width: calc(var(--card-height) / 1.5);
+      }
+      body {
+        min-height: 100vh;
+        background: #212534;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        box-sizing: border-box;
+      }
+      .card {
+        background: #191c29;
+        width: var(--card-width);
+        height: var(--card-height);
+        padding: 3px;
+        position: relative;
+        border-radius: 6px;
+        justify-content: center;
+        align-items: flex-end;
+        display: flex;
+        font-size: 1.5em;
+        color: rgb(88 199 250 / 0%);
+        cursor: pointer;
+        font-family: cursive;
+        margin-bottom: 20px;
+      }
+      .card:hover {
+        color: rgb(88 199 250 / 100%);
+        transition: color 1s;
+        background-image: url("https://scontent.fhan5-9.fna.fbcdn.net/v/t39.30808-6/404459673_1596338350900730_2596019738672476333_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFK2-ms9oUjnXs2fNoi9Ke1m89iTCgviTibz2JMKC-JONlj61FfGdSaREKgbvXdDwmTotwaU2TYRLXGNGsFPmUj&_nc_ohc=CWua0T8nWtMAX9knt6B&_nc_ht=scontent.fhan5-9.fna&oh=00_AfCPJNWZlO3JcLteRtsEKJYPHmublFLyViH5iPtS3bae8g&oe=65667B32");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .card:hover::before,
+      .card:hover::after {
+        animation: none;
+        opacity: 0;
+      }
+      .card::before {
+        content: " ";
+        width: 104%;
+        height: 102%;
+        border-radius: 8px;
+        background-image: linear-gradient(
+          var(--rotate),
+          #5ddcff,
+          #3c67e3 43%,
+          #4e00c2
+        );
+        position: absolute;
+        z-index: -1;
+        top: -1%;
+        left: -2%;
+        animation: spin 2.5s linear infinite;
+      }
+      .card::after {
+        position: absolute;
+        content: " ";
+        top: calc(var(--card-height) / 6);
+        left: 0;
+        right: 0;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        transform: scale(0.8);
+        filter: blur(calc(var(--card-height) / 6));
+        background-image: linear-gradient(
+          var(--rotate),
+          #5ddcff,
+          #3c67e3 43%,
+          #4e00c2
+        );
+        opacity: 1;
+        transition: opacity 0.5s;
+        animation: spin 2.55 linear infinite;
+      }
+      .btn {
+        height: 40px;
+        background: rgb(239, 73, 73);
+        color: white;
+        outline: 0;
+        border: 0;
+        border-radius: 99px;
+        padding: 10px;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background: rgb(250, 22, 22);
+      }
+      .btn > a {
+        color: white;
+        text-decoration: none;
+      }
+      @keyframes spin {
+        0% {
+          --rotate: 0deg;
+        }
+        100% {
+          --rotate: 360deg;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card"><span>❤️</span></div>
+    <button class="btn">
+      <a href="https://www.facebook.com/profile.php?id=100063562215112"
+        >Nhắn tin với tớ nhó 🤭</a
+      >
+    </button>
+  </body>
+</html>
